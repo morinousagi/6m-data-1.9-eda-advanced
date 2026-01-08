@@ -1,0 +1,82 @@
+# **Pre-Class Study Guide: Advanced EDA**
+
+**Estimated Duration:** 30 Minutes
+
+**Goal:** Prepare your "mental model" for the upcoming workshop. We will be writing a lot of code in class, so understanding *why* we do these operations beforehand is crucial.
+
+## **1\. Key Concepts to Master**
+
+Please review the following four concepts. You don't need to memorize code syntax yet—just understand the logic.
+
+### **A. Correlation vs. Covariance**
+
+* **The Problem:** We want to know if two stocks (e.g., MSFT and IBM) move together.  
+* **Covariance:** Tells us *if* they move in the same direction, but the number is hard to interpret (e.g., is "0.0004" a strong relationship? It depends on the scale of the data).  
+* **Correlation:** A normalized version of covariance. It is always between **\-1 and 1**.  
+  * 1: Perfect match (they move identically).  
+  * \-1: Perfect inverse (one goes up, one goes down).  
+  * 0: No relationship (random).  
+* **Reading:** [Covariance vs Correlation (Blog)](https://www.mygreatlearning.com/blog/covariance-vs-correlation/)
+
+### **B. Time is an Object, Not a String**
+
+* **The Problem:** To a computer, the text "2023-01-01" is just a string of characters, like "Hello World". It doesn't know that "2023-01-02" comes one day after it.  
+* **The Solution:** We convert these strings into **Datetime Objects**. This allows us to do math on dates (e.g., Date\_B \- Date\_A \= 3 days) and handle business days vs. weekends.  
+* **Reading:** [Python Datetime Tutorial](https://www.programiz.com/python-programming/datetime)
+
+### **C. Tidy Data (Wide vs. Long)**
+
+* **Wide Format (Excel Style):** Great for humans.  
+  * *Example:* A column for "2020 Sales", a column for "2021 Sales", etc.  
+  * *Problem:* Hard to plot or group by "Year" because "Year" isn't a column; it's a header.  
+* **Long Format (Database Style):** Great for code/pandas.  
+  * *Example:* One column called "Year" (containing 2020, 2021\) and one column called "Sales".  
+  * *Action:* We use **Melt** to go from Wide $\\to$ Long, and **Pivot** to go from Long $\\to$ Wide.
+
+### **D. Split-Apply-Combine**
+
+This is the logic behind the famous groupby operation.
+
+1. **Split** the data into groups (e.g., Split restaurant tips by "Smoker" vs. "Non-Smoker").  
+2. **Apply** a function to each group independently (e.g., Calculate the average tip).  
+3. **Combine** the results back into a summary table.
+
+## **2\. AI Companion Exercise (Highly Recommended)**
+
+We encourage you to use an AI tool (ChatGPT, Claude, or NotebookLM) to solidify these concepts.
+
+Instructions:
+
+Copy and paste the prompts below into your AI assistant.
+
+**Prompt 1 (Data Merging):**
+
+"I am learning pandas dataframes. Explain the difference between an 'Inner Join' and a 'Left Join' using a simple analogy, like inviting friends to two different parties. What happens to the friends who are only on one list?"
+
+**Prompt 2 (Reshaping):**
+
+"Explain the difference between pandas pivot and melt. Give me an example using a spreadsheet of student grades to show why I might want to switch between them."
+
+**Prompt 3 (Grouping):**
+
+"Explain the 'Split-Apply-Combine' strategy in data analysis using a simple real-world example, like calculating the average price of different fruit types in a grocery cart."
+
+## **3\. Useful Reference Sheets**
+
+Keep these open during the class. They are excellent for looking up syntax quickly.
+
+* [Pandas Data Wrangling Cheatsheet](https://www.datacamp.com/cheat-sheet/pandas-cheat-sheet-data-wrangling-in-python)  
+* [Working with Dates and Times in Python](https://www.datacamp.com/cheat-sheet/working-with-dates-and-times-in-python-cheat-sheet)
+
+## **4\. Check for Understanding**
+
+Before attending class, can you answer "Yes" to the following?
+
+* \[ \] I understand that NaN stands for "Not a Number" (missing data) and usually needs to be filled or dropped.  
+* \[ \] I know that if I merge two tables using an **Inner Join**, rows that don't match in both tables will be deleted.  
+* \[ \] I understand that to analyze stock trends over time, my data must be sorted chronologically by an Index.  
+* \[ \] I know that pivot\_table in Python is the equivalent of Pivot Tables in Excel.
+
+**See you in class\!**
+
+

@@ -1,3 +1,7 @@
 solutions/
 .DS_Store
 .ipynb_checkpoints/
+notebooks/eda_advanced_1.ipynb
+notebooks/eda_advanced_2.ipynb
+notebooks/eda_advanced_3.ipynb
+notebooks/eda_advanced_4.ipynb
